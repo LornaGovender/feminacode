@@ -4,32 +4,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FeminaCode 💻🌸</title>
+  <title>🌸 FeminaCode | Empowering Girls to Code 💻</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff0f5;
-      color: #333;
+    html, body {
       margin: 0;
       padding: 0;
+      height: 100%;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom right, #ffe0f0, #ffeaf7);
+      overflow-x: hidden;
+      color: #4a005c;
+    }
+
+    #glitterCanvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 9999;
+      pointer-events: none;
     }
 
     header {
       background-color: #ffb6c1;
-      padding: 20px;
+      padding: 25px;
       text-align: center;
       color: white;
-    }
-
-    header h1 {
-      margin: 0;
+      font-family: 'Pacifico', cursive;
       font-size: 2.5em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     nav {
+      background-color: #ffe4ec;
+      padding: 15px;
       text-align: center;
-      background-color: #ffe4e1;
-      padding: 10px;
     }
 
     nav a {
@@ -37,20 +46,28 @@
       color: #d6336c;
       font-weight: bold;
       text-decoration: none;
+      font-size: 1.1em;
     }
 
     section {
-      padding: 20px;
+      padding: 30px;
+    }
+
+    h2 {
+      font-family: 'Pacifico', cursive;
+      color: #d6336c;
     }
 
     .resources a {
       display: inline-block;
       margin: 10px;
-      padding: 10px 20px;
+      padding: 12px 22px;
       background-color: #ff69b4;
       color: white;
-      border-radius: 10px;
+      border-radius: 30px;
       text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       transition: background 0.3s;
     }
 
@@ -59,125 +76,209 @@
     }
 
     .story-card {
-      background-color: #fff;
-      padding: 15px;
+      background-color: #fff0f7;
+      padding: 20px;
       margin: 10px 0;
-      border-left: 5px solid #ff69b4;
-      border-radius: 8px;
+      border-left: 6px solid #ff69b4;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    #chatbot {
-      background: #fff;
-      padding: 15px;
-      border: 2px solid #ff69b4;
-      border-radius: 10px;
-      margin-top: 20px;
-      max-width: 600px;
+    #sparklebot {
+      background: #fff7fb;
+      padding: 25px;
+      border: 3px solid #ffb6c1;
+      border-radius: 20px;
+      margin-top: 30px;
+      max-width: 700px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     #chatbox {
-      height: 150px;
-      border: 1px solid #ccc;
-      padding: 10px;
+      height: 200px;
+      border: 2px dashed #ffc0cb;
+      padding: 15px;
       overflow-y: auto;
-      margin-bottom: 10px;
-      background: #f9f9f9;
+      background: #fff0f5;
+      margin-bottom: 15px;
+      border-radius: 15px;
+    }
+
+    .msg {
+      margin: 8px 0;
+    }
+
+    .msg.user {
+      text-align: right;
+      color: #a6006b;
+    }
+
+    .msg.bot {
+      color: #4a005c;
     }
 
     #userInput {
-      width: 80%;
-      padding: 8px;
+      width: 75%;
+      padding: 10px;
+      border: 2px solid #ffc0cb;
+      border-radius: 8px;
     }
 
     #sendBtn {
-      padding: 8px 15px;
+      padding: 10px 18px;
       background-color: #ff69b4;
       border: none;
       color: white;
       cursor: pointer;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-left: 10px;
     }
 
     footer {
       background-color: #ffe4e1;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
       margin-top: 40px;
-    }
-
-    @media (max-width: 600px) {
-      .resources a {
-        width: 100%;
-        margin: 5px 0;
-      }
+      font-size: 0.9em;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>🌸 FeminaCode 💻</h1>
-    <p>Empowering Girls to Code & Shine ✨</p>
-  </header>
+<canvas id="glitterCanvas"></canvas>
 
-  <nav>
-    <a href="#learn">Learn</a>
-    <a href="#stories">Stories</a>
-    <a href="#chatbot">Ask AI</a>
-  </nav>
+<header>
+  🌸 FeminaCode
+  <p style="font-size: 0.4em; font-family: 'Quicksand'; margin-top: 8px;">Where girls code with confidence ✨</p>
+</header>
 
-  <section id="learn">
-    <h2>📚 Learn to Code</h2>
-    <div class="resources">
-      <a href="https://leetcode.com" target="_blank">LeetCode</a>
-      <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
-      <a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a>
-    </div>
-  </section>
+<nav>
+  <a href="#learn">🌈 Learn</a>
+  <a href="#stories">💖 Stories</a>
+  <a href="#sparklebot">🪄 SparkleBot</a>
+</nav>
 
-  <section id="stories">
-    <h2>💖 Inspiring Stories</h2>
-    <div class="story-card">
-      <strong>Ayanda (Age 12):</strong> Built her first HTML website using tutorials online!
-    </div>
-    <div class="story-card">
-      <strong>Priya:</strong> Won a coding scholarship after learning Python on YouTube.
-    </div>
-    <div class="story-card">
-      <strong>Maria:</strong> Learned JavaScript after school and now helps other girls code!
-    </div>
-  </section>
+<section id="learn">
+  <h2>📚 Learn to Code</h2>
+  <div class="resources">
+    <a href="https://leetcode.com" target="_blank">LeetCode</a>
+    <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
+    <a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a>
+  </div>
+</section>
 
-  <section id="chatbot">
-    <h2>🤖 Ask VoltaBot</h2>
-    <div id="chatbox"></div>
-    <input type="text" id="userInput" placeholder="Type your coding question..." />
-    <button id="sendBtn">Send</button>
-  </section>
+<section id="stories">
+  <h2>💬 Girl Power Stories</h2>
+  <div class="story-card"><strong>Ayanda (Age 12):</strong> Built her first HTML website! 💻</div>
+  <div class="story-card"><strong>Priya:</strong> Won a scholarship using Python! 🐍</div>
+  <div class="story-card"><strong>Maria:</strong> Now teaches JavaScript to girls! 🌟</div>
+</section>
 
-  <footer>
-    © 2025 FeminaCode | Built with 💖 by Lorna Theresa Govender
-  </footer>
+<section id="sparklebot">
+  <h2>✨ Meet SparkleBot</h2>
+  <p style="font-size: 1em;">Hi there! I'm SparkleBot 💬🌈. Ask me anything about coding, confidence or glitter!</p>
+  <div id="chatbox"></div>
+  <input type="text" id="userInput" placeholder="Ask me anything, lovely!" />
+  <button id="sendBtn">💌 Send</button>
+</section>
 
-  <script>
-    const chatbox = document.getElementById('chatbox');
-    const input = document.getElementById('userInput');
-    const sendBtn = document.getElementById('sendBtn');
+<footer>
+  © 2025 FeminaCode | Made with 💖 by Lorna Theresa Govender & SparkleBot ✨
+</footer>
 
-    sendBtn.addEventListener('click', () => {
-      const userText = input.value.trim();
-      if (userText === '') return;
+<script>
+  // ✨ SPARKLE EFFECT ✨
+  const canvas = document.getElementById('glitterCanvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
 
-      chatbox.innerHTML += `<p><strong>You:</strong> ${userText}</p>`;
-      input.value = '';
+  class Sparkle {
+    constructor(x, y) {
+      this.x = x;
+      this.y = y;
+      this.size = Math.random() * 4 + 2;
+      this.opacity = 1;
+      this.speedX = (Math.random() - 0.5) * 1.5;
+      this.speedY = (Math.random() - 0.5) * 1.5;
+      this.color = `hsla(${Math.random() * 360}, 100%, 75%, ${this.opacity})`;
+    }
 
-      setTimeout(() => {
-        const reply = "VoltaBot says: Keep going girl! Try searching this on W3Schools or LeetCode!";
-        chatbox.innerHTML += `<p><strong>Bot:</strong> ${reply}</p>`;
-        chatbox.scrollTop = chatbox.scrollHeight;
-      }, 500);
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      this.opacity -= 0.02;
+      this.color = `hsla(${Math.random() * 360}, 100%, 75%, ${this.opacity})`;
+    }
+
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fillStyle = this.color;
+      ctx.fill();
+    }
+  }
+
+  let sparkles = [];
+
+  function addSparkles(x, y) {
+    for (let i = 0; i < 8; i++) {
+      sparkles.push(new Sparkle(x, y));
+    }
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    sparkles.forEach((s, i) => {
+      s.update();
+      s.draw();
+      if (s.opacity <= 0) sparkles.splice(i, 1);
     });
-  </script>
+    requestAnimationFrame(animate);
+  }
 
+  document.addEventListener('mousemove', e => {
+    addSparkles(e.clientX, e.clientY);
+  });
+
+  document.addEventListener('touchmove', e => {
+    const touch = e.touches[0];
+    if (touch) addSparkles(touch.clientX, touch.clientY);
+  }, { passive: true });
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  animate();
+
+  // 💬 SparkleBot
+  const chatbox = document.getElementById('chatbox');
+  const input = document.getElementById('userInput');
+  const sendBtn = document.getElementById('sendBtn');
+
+  sendBtn.addEventListener('click', () => {
+    const userText = input.value.trim();
+    if (!userText) return;
+
+    chatbox.innerHTML += `<div class="msg user"><strong>You:</strong> ${userText}</div>`;
+    input.value = '';
+
+    setTimeout(() => {
+      const responses = [
+        "Keep shining, coder queen! 💖",
+        "You got this, sparkle star! ✨",
+        "Check FreeCodeCamp — it's amazing! 🌈",
+        "Remember: Errors are part of learning! 💡",
+        "HTML stands for HyperText Markup Language! 💻"
+      ];
+      const reply = responses[Math.floor(Math.random() * responses.length)];
+      chatbox.innerHTML += `<div class="msg bot"><strong>SparkleBot:</strong> ${reply}</div>`;
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }, 700);
+  });
+</script>
 </body>
 </html>
