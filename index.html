@@ -1,1 +1,183 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FeminaCode 💻🌸</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ffb6c1;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    nav {
+      text-align: center;
+      background-color: #ffe4e1;
+      padding: 10px;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: #d6336c;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    .resources a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      color: white;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .resources a:hover {
+      background-color: #ff1493;
+    }
+
+    .story-card {
+      background-color: #fff;
+      padding: 15px;
+      margin: 10px 0;
+      border-left: 5px solid #ff69b4;
+      border-radius: 8px;
+    }
+
+    #chatbot {
+      background: #fff;
+      padding: 15px;
+      border: 2px solid #ff69b4;
+      border-radius: 10px;
+      margin-top: 20px;
+      max-width: 600px;
+    }
+
+    #chatbox {
+      height: 150px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+      background: #f9f9f9;
+    }
+
+    #userInput {
+      width: 80%;
+      padding: 8px;
+    }
+
+    #sendBtn {
+      padding: 8px 15px;
+      background-color: #ff69b4;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #ffe4e1;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .resources a {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🌸 FeminaCode 💻</h1>
+    <p>Empowering Girls to Code & Shine ✨</p>
+  </header>
+
+  <nav>
+    <a href="#learn">Learn</a>
+    <a href="#stories">Stories</a>
+    <a href="#chatbot">Ask AI</a>
+  </nav>
+
+  <section id="learn">
+    <h2>📚 Learn to Code</h2>
+    <div class="resources">
+      <a href="https://leetcode.com" target="_blank">LeetCode</a>
+      <a href="https://www.w3schools.com" target="_blank">W3Schools</a>
+      <a href="https://www.freecodecamp.org" target="_blank">FreeCodeCamp</a>
+    </div>
+  </section>
+
+  <section id="stories">
+    <h2>💖 Inspiring Stories</h2>
+    <div class="story-card">
+      <strong>Ayanda (Age 12):</strong> Built her first HTML website using tutorials online!
+    </div>
+    <div class="story-card">
+      <strong>Priya:</strong> Won a coding scholarship after learning Python on YouTube.
+    </div>
+    <div class="story-card">
+      <strong>Maria:</strong> Learned JavaScript after school and now helps other girls code!
+    </div>
+  </section>
+
+  <section id="chatbot">
+    <h2>🤖 Ask VoltaBot</h2>
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" placeholder="Type your coding question..." />
+    <button id="sendBtn">Send</button>
+  </section>
+
+  <footer>
+    © 2025 FeminaCode | Built with 💖 by Lorna Theresa Govender
+  </footer>
+
+  <script>
+    const chatbox = document.getElementById('chatbox');
+    const input = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    sendBtn.addEventListener('click', () => {
+      const userText = input.value.trim();
+      if (userText === '') return;
+
+      chatbox.innerHTML += `<p><strong>You:</strong> ${userText}</p>`;
+      input.value = '';
+
+      setTimeout(() => {
+        const reply = "VoltaBot says: Keep going girl! Try searching this on W3Schools or LeetCode!";
+        chatbox.innerHTML += `<p><strong>Bot:</strong> ${reply}</p>`;
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }, 500);
+    });
+  </script>
+
+</body>
+</html>
